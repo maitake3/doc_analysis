@@ -83,9 +83,11 @@ def main():
     clusters = kmeans.fit_predict(vectorized_docs)
     print(clusters)
 
-    with open(f"/workspaces/doc_analysis/output/result-{num_clusters}.csv", mode='w') as f:
-        for doc, cluster, category in zip(preprocessed_docs, clusters, categories):
-            f.write(f'{cluster}, {category[0]}, {" ".join(doc)}\n')
+    with open(f"/workspaces/doc_analysis/output/result-with-{num_clusters}.csv", mode='w') as f1:
+        with open(f"/workspaces/doc_analysis/output/origin.csv", mode='w') as f2:
+            for doc, cluster, category, origin in zip(preprocessed_docs, clusters, categories, docs):
+                f1.write(f'{cluster}, {category[0]}\n')
+                f2.write(f'{" ".join(doc[:10])}, {" ".join(origin[:20])}\n')
 
 if __name__ == "__main__":
     main()
