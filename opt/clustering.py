@@ -36,7 +36,7 @@ def preprocess_word(word:str, stopwordlist:list):
 
 def preprocess_doc(document:list, stopwordlist:list):
     document = [preprocess_word(w, stopwordlist) for w in document]
-    document = [w for w in document if w is not None]
+    document = [w for w in document if w is not None and w != ""]
     return document
 
 def vectorize_doc(document, model):

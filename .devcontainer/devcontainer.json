@@ -15,7 +15,13 @@
 	},
 
 	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": []
+	"extensions": [
+		"oderwat.indent-rainbow",
+		"ms-python.python",
+		"shardulm94.trailing-spaces",
+		"visualstudioexptteam.vscodeintellicode",
+		"compulim.vscode-clock"
+	]
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
