@@ -13,6 +13,7 @@ from nltk.corpus import brown
 from nltk.corpus import wordnet as wn
 
 import argparse
+import re
 
 def preprocess_word(word:str, stopwordlist:list):
     word = word.lower()
@@ -22,6 +23,9 @@ def preprocess_word(word:str, stopwordlist:list):
 
     if "'s" in word:
         word = word.replace("'s", "")
+
+    word = re.sub(r'[0-9]+', '', word)
+    word = re.sub(r'[!\?#$%&\^\(\)\[\]]+', '', word)
 
     if word in stopwordlist:
         return None
