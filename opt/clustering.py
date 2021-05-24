@@ -18,14 +18,14 @@ import re
 def preprocess_word(word:str, stopwordlist:list):
     word = word.lower()
 
-    if word in [",", "."]:
-        return None
+    #if word in [",", "."]:
+    #    return None
 
     if "'s" in word:
         word = word.replace("'s", "")
 
     word = re.sub(r'[0-9]+', '', word)
-    word = re.sub(r'[!\?#$%&\^\(\)\[\]]+', '', word)
+    word = re.sub(r'[,.!\?#$%&\^\(\)\[\]]+', '', word)
 
     if word in stopwordlist:
         return None
